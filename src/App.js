@@ -11,10 +11,12 @@ function App() {
       <Router>
         <React.Fragment>
           <Navbar />
-          <div className="container">
-            <Switch>
-              <Route exact path="/" component={Index} />
-            </Switch>
+          <div className="container-bg">
+            <div className="container">
+              <Switch>
+                <Route exact path="/" component={Index} />
+              </Switch>
+            </div>
           </div>
         </React.Fragment>
         </Router>
