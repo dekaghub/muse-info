@@ -29,6 +29,7 @@ class Lyrics extends Component {
 
     render() {
         const { track, lyrics } = this.state;
+
         if (
             track === undefined ||
             lyrics === undefined ||
@@ -44,7 +45,7 @@ class Lyrics extends Component {
                         {track.track_name} by <span className="text-secondary">{track.artist_name}</span>
                     </h5>
                     <div className="card-body">
-                        <p className="card-text">{lyrics.lyrics_body}</p>
+                        <p className="card-text"><div dangerouslySetInnerHTML={{__html:lyrics.lyrics_body.replaceAll('\n', ' <br>')}}/></p>
                     </div>
 
                     <ul className="list-group mt-3">
@@ -52,7 +53,7 @@ class Lyrics extends Component {
                             <strong>Album/EP </strong> {track.album_name}
                         </li>
                         <li className="list-group-item">
-                            <strong>Released </strong> {Moment(track.updated_time).format('DD/MM/YYYY')}
+                            <strong>Released </strong> {Moment(track.updated_time).format('MMM DD YYYY')}
                         </li>
                         <li className="list-group-item">
                             <strong>Genre </strong> {track.primary_genres.music_genre_list[0].music_genre.music_genre_name}
